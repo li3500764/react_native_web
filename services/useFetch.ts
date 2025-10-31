@@ -10,7 +10,9 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
       setLoading(true);
       setError(null);
       const result = await fetchFunction();
+      console.log('API result:', result);
       setData(result);
+      console.log('After setData, current data:', data);
     } catch (err) {
         console.log(err);
       setError(err instanceof Error ? err : new Error("Unknown error"));
@@ -29,6 +31,11 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
       fetchData();
     }
   }, []);
+
+  useEffect(() => {
+    console.log('Data state updated:', data);
+  }, [data]);
+
   return { data, loading, error, refetch: fetchData, reset };
 };
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 const MovieCard = ({ id, poster_path, title, vote_average, release_date }: Movie) => {
-    console.log('MovieCard title:', poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : 'https://via.placeholder.com/600x400/1a1a1a/ffffff.png');
+    // console.log('MovieCard title:', poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : 'https://via.placeholder.com/600x400/1a1a1a/ffffff.png');
     return (
         <Link href={`/movies/${id}`} asChild>
             <TouchableOpacity className='w-[30%]'>
